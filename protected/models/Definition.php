@@ -2,7 +2,6 @@
 
 /**
  * This is the model class for table "definition".
- *
  * The followings are the available columns in table 'definition':
  * @property string $id
  * @property string $dictionary_id
@@ -44,6 +43,7 @@ class Definition extends DictionaryCActiveRecord
             array('definition', 'filter', 'filter' => 'trim'),
             array('definition', 'filter', 'filter' => 'strip_tags'),
             array('source', 'length', 'max'=>200),
+
            // array('date_updated, date_entered', 'date', 'format' => 'DD-MM-yyyy'),
     //			//The following rule is used by search().
     //			// @todo Please remove those attributes that should not be searched.
