@@ -18,29 +18,36 @@ $this->menu=array(
 
 <h1>View Definition #<?php echo $model->id; ?></h1>
 
-<?php $this->beginWidget(
-    'bootstrap.widgets.TbModal',
-    array('id' => 'myModal')
-    ); 
-?>
-
-
-<div class="modal-header">
-    <a class="close" data-dismiss="modal">&times;</a>
-    <h4>Modal header</h4>
-</div>
-
-<div class="modal-body">
-<?php 
-    
-    $sourceModel = new Source;
-    
-    
-    $this->renderPartial('..\source\view', array(
-			'model'=>$sourceModel->findByPk($model->source_id)
-    ));
-    
-?>
-
-</div>
-
+<?php $this->widget('zii.widgets.CDetailView', array(
+	'data'=>$model,
+	'attributes'=>array(
+                array(
+                    'name'=>'dictionary.name',
+                    'type'=>'raw',
+                    'value'=>CHtml::link(($model->dictionary->name), 
+                            Yii::app()->createUrl('dictionary/'.$model->getAttribute('dictionary_id'))),
+                ),
+                array(
+                    'name'=>'entry.name',
+                    'type'=>'raw',
+                    'value'=>CHtml::link(($model->entry->name), 
+                            Yii::app()->createUrl('entry/'.$model->getAttribute('entry_id'))),
+                ),
+                'source',
+                array(
+                    'name'=>'type.name',
+                    'type'=>'raw',
+                    'value'=>CHtml::link(($model->type->name), 
+                            Yii::app()->createUrl('type/'.$model->getAttribute('type_id'))),
+                ),
+                'definition',
+                'position',		
+                array(
+                    'name'=>'user.username',
+                    'type'=>'raw',
+                    'value'=>CHtml::link(($model->user->username), 
+                            Yii::app()->createUrl('user/'.$model->getAttribute('user_id'))),
+                ),
+		
+	),
+)); ?>

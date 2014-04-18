@@ -32,7 +32,7 @@
         'source' => Yii::app()->createUrl('ajax/listEntries'),
         'options' => array(            
             'minLength' => 1,
-            'select' => "js:function(event, ui) {
+            'select' => "js:function(event, ui) {                
                 $('#Entry_id').val(ui.item.id);
                 getDefinitions(yii.urls.getDefinitions+'/'+ui.item.id);
             }",
@@ -52,7 +52,10 @@
 
     
 <?php $this->endWidget(); ?>
-
+<div class="row-fluid">
+  <div id="wordEntry" class="span8 offset1"></div>
+  <div id="definitions" class="span8 offset2"></div>
+</div>    
 
 </div><!-- form -->
 

@@ -47,9 +47,19 @@ class AjaxController extends Controller
             Yii::app()->end();
     }
     
-    
-	
-
-    
+    public function actionGetEntry()
+    {
+        if (isset($_POST['id']))
+        {
+            $entry = Entry::model()->findByPk($_POST['id']);           
+            echo CJSON::encode($entry->name);
+        }
+        else
+        {
+            echo CJSON::encode('');
+        }
+        
+        Yii::app()->end();
+    }
 }
 

@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS yii_dictionary.definition(
     REFERENCES yii_dictionary.type (id)
     ON DELETE RESTRICT
     ON UPDATE CASCADE,
-  CONSTRAINT uc_entryId_typeId UNIQUE (entry_id, type_id))
+  CONSTRAINT uc_entryId_definition UNIQUE (entry_id, definition))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_general_ci;

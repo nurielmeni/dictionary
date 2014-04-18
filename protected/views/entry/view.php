@@ -24,7 +24,7 @@ $this->menu=array(
 		'id',
 		'name',
 		'date_entered:date',
-        'date_updated:date',
+                'date_updated:date',
 		'by_user_id',
 	),
 )); ?>

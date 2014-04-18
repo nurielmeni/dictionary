@@ -4,7 +4,7 @@ function getDefinitions(url)
         'dataType':'html',
         'url': url,
         'type': 'get',
-        'success': function(result){alert(result);},
+        'success': function(result){$('#wordEntry').html('<p>'+result+'</p>');},
         'cache': false,
         'data': jQuery(this).parents("form").serialize()
     });

@@ -3,6 +3,17 @@
 /* @var $model Definition */
 /* @var $form CActiveForm */
 ?>
+
+<?php
+    Yii::app()->clientScript->registerScript('helpers', '                                                           
+              yii = {                                                                                                     
+                  urls: {                                                                                                 
+                      getDefinitions: '.CJSON::encode(Yii::app()->createUrl('ajax/getDefinitions')).',                                   
+                      base: '.CJSON::encode(Yii::app()->baseUrl).'                                                        
+                  }                                                                                                       
+              };                                                                                                          
+    '); 
+?>
 <style>
     .inputLight {color:#c0c0c0;}
 </style>
@@ -27,60 +38,24 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array( // the dialog
  
 <script type="text/javascript">
 $(document).ready(function() {
-    alert('<?php Yii::app()->params['entry']?>');
     if ($('#Definition_entry_id').val()!='')
-        $('#entry').val('gdgd');
-        
-});
-
-function onSuccess(data)
-{
-    if (data.status == 'failure')
     {
-        $('#dialogSource div.divForForm').html(data.div);                          
-        $('#dialogSource div.divForForm form').submit(addSource);
-    }
-    else
-    {
-        $('#dialogSource div.divForForm').html(data.div);                    
-        setTimeout('$("#dialogSource").dialog("close")' ,1500);
-        $('#Definition_source_id').val(data.value[0]);
-        $('#source_id').val(data.value[1]);
-        
-    }    
-}    
-    
-function onError(data)
-{
-
-    var response = JSON.parse("[" + [data.responseText.substr(5)] + "]");
-    if (response[0]["status"] == 'success')
-    {
-        $('#dialogSource div.divForForm').html(response[0]["div"]);                    
-        setTimeout($("#dialogSource").dialog("close") ,1500);
-        $('#Definition_source_id').val(response[0]['value'][0]);
-        $('#source_id').val(response[0]['value'][1]); 
-        
-    }    
-}    
-    
-// here is the magic
-function addSource()
-{
-    <?php echo CHtml::ajax(array(
-            'url'=>array('source/create'),
-            'data'=> "js:$(this).serialize()",
+        <?php echo CHtml::ajax(array(
+            'url'=>array('ajax/getEntry'),
+            'data'=> "js:'id='+$('#Definition_entry_id').val()",
             'type'=>'post',
             'dataType'=>'json',
-            'success'=>'onSuccess',
-            'error' => 'onError',
-        )); ?>
-    return false; 
- 
-}
-
-
- 
+            'success'=>'function(val){'
+            . '$("#entry").val(val);'
+            . '$("#entry").prop("readonly",true);'
+            . '$("#entry").css("color", "black");}'))
+        ?>
+        
+     }
+    
+       
+        
+});
 </script>
 
 

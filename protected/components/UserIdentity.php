@@ -42,6 +42,5 @@ class UserIdentity extends CUserIdentity
     // Overides the default Yii::user->id to return the id and not name.
     public function getId(){
         return $this->_id;
-    }
-    
+    }    
 }

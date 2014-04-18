@@ -43,7 +43,8 @@ class Definition extends DictionaryCActiveRecord
 
             array('definition', 'filter', 'filter' => 'trim'),
             array('definition', 'filter', 'filter' => 'strip_tags'),
-            array('date_updated, date_entered', 'date', 'format' => 'DD-MM-yyyy'),
+            array('source', 'length', 'max'=>200),
+           // array('date_updated, date_entered', 'date', 'format' => 'DD-MM-yyyy'),
     //			//The following rule is used by search().
     //			// @todo Please remove those attributes that should not be searched.
             array('id, entry_id, dictionary_id, source, type_id, definition, position, date_entered, date_updated, by_user_id', 'safe', 'on'=>'search'),
@@ -61,6 +62,7 @@ class Definition extends DictionaryCActiveRecord
                         'dictionary' => array(self::BELONGS_TO, 'Dictionary', 'dictionary_id'),
 			'entry' => array(self::BELONGS_TO, 'Entry', 'entry_id'),			
 			'type' => array(self::BELONGS_TO, 'Type', 'type_id'),
+                        'user' => array(self::BELONGS_TO, 'User', 'by_user_id')
 		);
 	}
 
@@ -80,6 +82,10 @@ class Definition extends DictionaryCActiveRecord
 			'date_entered' => 'Date Entered',
 			'date_updated' => 'Date Updated',
 			'by_user_id' => 'By User',
+                        'dictionary.name' => 'Dictionary',
+                        'entry.name' => 'Entry',
+                        'type.name' => 'Type',
+                        'user.username' => 'By Username'
 		);
 	}
 
