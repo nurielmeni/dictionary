@@ -23,8 +23,6 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'name',
-		'date_entered',
-		'date_updated',
-		'by_user_id',
+		
 	),
 )); ?>

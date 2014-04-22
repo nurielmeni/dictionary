@@ -10,11 +10,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('dictionary_id')); ?>:</b>
-	<?php echo CHtml::encode($data->dictionary_id); ?>
+	<?php echo CHtml::link($data->dictionary->name, array('dictionary/view', 'id' => $data->dictionary_id)); ?>
         <br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('entry_id')); ?>:</b>
-	<?php echo CHtml::encode($data->entry_id); ?>
+	<?php echo CHtml::link($data->entry->name, array('entry/view', 'id' => $data->entry_id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('source')); ?>:</b>
@@ -22,7 +22,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('type_id')); ?>:</b>
-	<?php echo CHtml::encode($data->type_id); ?>
+	<?php echo CHtml::link($data->type->name, array('type/view', 'id' => $data->type_id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('definition')); ?>:</b>
@@ -33,11 +33,12 @@
 	<?php echo CHtml::encode($data->position); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('date_entered')); ?>:</b>
+	<?php /*
+        <b><?php echo CHtml::encode($data->getAttributeLabel('date_entered')); ?>:</b>
 	<?php echo CHtml::encode($data->date_entered); ?>
 	<br />
 
-	<?php /*
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('date_updated')); ?>:</b>
 	<?php echo CHtml::encode($data->date_updated); ?>
 	<br />

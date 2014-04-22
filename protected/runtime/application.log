@@ -3852,3 +3852,39 @@ in D:\xampp\htdocs\dictionary\protected\views\definition\_form.php (46)
 in D:\xampp\htdocs\dictionary\protected\views\definition\update.php (21)
 in D:\xampp\htdocs\dictionary\protected\controllers\DefinitionController.php (108)
 in D:\xampp\htdocs\dictionary\index.php (13)
+2014/04/22 13:32:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "type".' in C:\xampp\yii-1.1.14\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\yii-1.1.14\framework\web\CController.php(270): CController->missingAction('type')
+#1 C:\xampp\yii-1.1.14\framework\web\CWebApplication.php(282): CController->run('type')
+#2 C:\xampp\yii-1.1.14\framework\web\CWebApplication.php(141): CWebApplication->runController('definition/type')
+#3 C:\xampp\yii-1.1.14\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\dictionary\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/dictionary/index.php/definition/type/2
+HTTP_REFERER=http://localhost/dictionary/index.php/definition
+---
+2014/04/22 13:50:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2-2' for key 'uc_entryId_typeId'. The SQL statement executed was: INSERT INTO `definition` (`by_user_id`, `entry_id`, `dictionary_id`, `source`, `type_id`, `definition`, `position`, `date_entered`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, NOW()). Bound with :yp0='1', :yp1='2', :yp2='2', :yp3='Meni Nuriel', :yp4='2', :yp5='My Def for engram', :yp6='2'.
+in C:\xampp\htdocs\dictionary\protected\controllers\DefinitionController.php (78)
+in C:\xampp\htdocs\dictionary\index.php (13)
+2014/04/22 13:50:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2-2' for key 'uc_entryId_typeId'. The SQL statement executed was: INSERT INTO `definition` (`by_user_id`, `entry_id`, `dictionary_id`, `source`, `type_id`, `definition`, `position`, `date_entered`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, NOW()). Bound with :yp0='1', :yp1='2', :yp2='2', :yp3='Meni Nuriel', :yp4='2', :yp5='My Def for engram', :yp6='2'' in C:\xampp\yii-1.1.14\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\yii-1.1.14\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 C:\xampp\yii-1.1.14\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\dictionary\protected\controllers\DefinitionController.php(78): CActiveRecord->save()
+#3 C:\xampp\yii-1.1.14\framework\web\actions\CInlineAction.php(49): DefinitionController->actionCreate()
+#4 C:\xampp\yii-1.1.14\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\yii-1.1.14\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\yii-1.1.14\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\yii-1.1.14\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\yii-1.1.14\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\yii-1.1.14\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\yii-1.1.14\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\yii-1.1.14\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\yii-1.1.14\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\xampp\yii-1.1.14\framework\web\CWebApplication.php(141): CWebApplication->runController('definition/crea...')
+#14 C:\xampp\yii-1.1.14\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\dictionary\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/dictionary/index.php/definition/create
+HTTP_REFERER=http://localhost/dictionary/index.php/definition/create
+---

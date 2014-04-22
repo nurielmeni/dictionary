@@ -28,12 +28,13 @@ class AjaxController extends Controller
             $criteria = new CDbCriteria();
             $criteria->select = 'type_id, definition, position';
             $criteria->condition = 'entry_id = :entry_id';
+            $criteria->order = 'position ASC';
             $criteria->params = array(':entry_id'=>$_GET['id']);
-            $res = Definition::model()->findAll($criteria);
+            $res = Definition::model()->with('type')->findAll($criteria);
             
             foreach ($res as $item){
                 $returnVal[] = array(    
-                    'type_id'=>$item->type_id,
+                    'type'=>$item->type->symbol,
                     'definition'=>$item->definition,
                     'position'=>$item->position,
                 );
