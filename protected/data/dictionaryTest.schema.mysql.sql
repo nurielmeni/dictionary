@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS yii_dictionaryTest.dictionary(
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
+  order INT UNSIGNED NULL,
   date_entered TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   date_updated DATETIME NULL,
   by_user_id INT UNSIGNED NULL,
@@ -76,8 +77,7 @@ CREATE TABLE IF NOT EXISTS yii_dictionaryTest.definition(
     FOREIGN KEY (type_id)
     REFERENCES yii_dictionaryTest.type (id)
     ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  CONSTRAINT uc_entryId_typeId UNIQUE (entry_id, type_id))
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_general_ci;

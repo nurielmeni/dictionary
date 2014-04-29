@@ -26,17 +26,19 @@ class AjaxController extends Controller
     public function actionGetDefinitions()
     {
             $criteria = new CDbCriteria();
-            $criteria->select = 'type_id, definition, position';
+            $criteria->select = 'type_id, definition, position, source';
             $criteria->condition = 'entry_id = :entry_id';
             $criteria->order = 'position ASC';
             $criteria->params = array(':entry_id'=>$_GET['id']);
-            $res = Definition::model()->with('type')->findAll($criteria);
+            $res = Definition::model()->with('type')->with('dictionary')->findAll($criteria);
             
             foreach ($res as $item){
                 $returnVal[] = array(    
                     'type'=>$item->type->symbol,
                     'definition'=>$item->definition,
                     'position'=>$item->position,
+                    'source'=>$item->source,
+                    'dictionary'=>$item->dictionary->name,
                 );
             }
             
@@ -47,7 +49,7 @@ class AjaxController extends Controller
             
             Yii::app()->end();
     }
-    
+        
     public function actionGetEntry()
     {
         if (isset($_POST['id']))

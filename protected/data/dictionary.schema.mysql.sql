@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS yii_dictionary.dictionary(
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
+  sort_order INT UNSIGNED NULL,
   date_entered TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   date_updated DATETIME NULL,
   by_user_id INT UNSIGNED NULL,
@@ -60,8 +61,7 @@ CREATE TABLE IF NOT EXISTS yii_dictionary.definition(
   by_user_id INT UNSIGNED NULL,
   PRIMARY KEY (id),
   INDEX fk_definition_entry_idx (entry_id ASC),  
-  INDEX fk_definition_type_idx (type_id ASC),
-  INDEX fk_definition_dictionary_idx (dictionary_id ASC),
+  INDEX fk_definition_type_idx (type_id ASC),  
   CONSTRAINT fk_definition_dictionary
     FOREIGN KEY (dictionary_id)
     REFERENCES yii_dictionary.dictionary (id)
@@ -76,8 +76,7 @@ CREATE TABLE IF NOT EXISTS yii_dictionary.definition(
     FOREIGN KEY (type_id)
     REFERENCES yii_dictionary.type (id)
     ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  CONSTRAINT uc_entryId_definition UNIQUE (entry_id, definition))
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_general_ci;

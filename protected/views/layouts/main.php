@@ -69,9 +69,9 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy;  by My Company.<br/>
+		Copyright &copy;  The Center of Scientology Tel-Aviv.<br/>
 		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
+		
 	</div><!-- footer -->
 
 </div><!-- page -->
