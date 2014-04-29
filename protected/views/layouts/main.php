@@ -38,8 +38,9 @@
                     array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
                     array('label'=>'Contact', 'url'=>array('/site/contact')),
                     array('label'=>'User', 'url'=>array('/user')),
-                    array('label'=>'Source', 'url'=>array('/source')),
+                    array('label'=>'Entry', 'url'=>array('/entry')),
                     array('label'=>'Type', 'url'=>array('/type')),
+                    array('label'=>'Dictionary', 'url'=>array('/dictionary')),
                     array('label'=>'Definition', 'url'=>array('/definition')),
                     array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                     array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)

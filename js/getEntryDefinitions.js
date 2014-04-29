@@ -20,6 +20,6 @@ function printDfinition(result)
                          '<p style="margin: 0 0 7px 22px; color: #616161;">'+value['definition']+'</p>'+
                          '<p style="margin: 0 0 10px 22px; color: #ACADB0; font-size: small;">(Source: '+value['source']+')</p>'+
                          '<p style="margin: 0 0 10px 22px; color: #ACADB0; font-size: small;">(Dictionary: '+value['dictionary']+')</p>';
-    })
+    });
     $('#wordEntry').html(htmlData);                        
 }

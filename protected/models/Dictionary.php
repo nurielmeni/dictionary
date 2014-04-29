@@ -13,7 +13,7 @@
  * The followings are the available model relations:
  * @property Definition[] $definitions
  */
-class Dictionary extends CActiveRecord
+class Dictionary extends DictionaryCActiveRecord
 {
 	/**
 	 * @return string the associated database table name
@@ -31,10 +31,10 @@ class Dictionary extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, date_entered', 'required'),
+			array('name', 'required'),
 			array('name', 'length', 'max'=>100),
 			array('by_user_id', 'length', 'max'=>10),
-			array('date_updated', 'safe'),
+			array('date_updated, date_entered', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, date_entered, date_updated, by_user_id', 'safe', 'on'=>'search'),

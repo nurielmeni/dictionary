@@ -8,5 +8,7 @@ $this->breadcrumbs=array(
 ?>
 <h1>About</h1>
 
-<p>This is a "static" page. You may change the content of this page
-by updating the file <code><?php echo __FILE__; ?></code>.</p>
+<p>This is a Dictionary System for Tel Aviv Org.</p>
+<p>It contains definitions from several dictionaries.</p>
+
+<p>Create By: Meni Nuriel.</p>

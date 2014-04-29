@@ -25,23 +25,7 @@
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'date_entered'); ?>
-		<?php echo $form->textField($model,'date_entered'); ?>
-		<?php echo $form->error($model,'date_entered'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'date_updated'); ?>
-		<?php echo $form->textField($model,'date_updated'); ?>
-		<?php echo $form->error($model,'date_updated'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'by_user_id'); ?>
-		<?php echo $form->textField($model,'by_user_id',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'by_user_id'); ?>
-	</div>
+	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

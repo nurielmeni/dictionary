@@ -41,7 +41,14 @@ CREATE TABLE `type` (
 
 LOCK TABLES `type` WRITE;
 /*!40000 ALTER TABLE `type` DISABLE KEYS */;
-INSERT INTO `type` VALUES (1,'not set','','2014-04-29 09:09:29',NULL,NULL);
+INSERT INTO `type` VALUES (1,'not set','', '2014-04-29 09:09:29', NULL,NULL);
+INSERT INTO `type` VALUES (2, 'noun', 'n', '2014-04-29 09:09:29', NULL,NULL);
+INSERT INTO `type` VALUES (3, 'verb', 'v', '2014-04-29 09:09:29', NULL,NULL);
+INSERT INTO `type` VALUES (4, 'modifier', 'm', '2014-04-29 09:09:29', NULL,NULL);
+INSERT INTO `type` VALUES (5, 'verb transitive', 'vt', '2014-04-29 09:09:29', NULL,NULL);
+INSERT INTO `type` VALUES (6, 'verb intransitive', 'vi', '2014-04-29 09:09:29', NULL,NULL);
+INSERT INTO `type` VALUES (7, 'adjective', 'adj', '2014-04-29 09:09:29', NULL,NULL);
+INSERT INTO `type` VALUES (8, 'preposition', 'prep', '2014-04-29 09:09:29', NULL,NULL);
 /*!40000 ALTER TABLE `type` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
