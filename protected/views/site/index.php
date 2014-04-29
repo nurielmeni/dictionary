@@ -1,15 +1,11 @@
 <?php
 /* @var $this SiteController */
 
+Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/dictionary.css');
+
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<?php $this->beginWidget(
-    'bootstrap.widgets.TbHeroUnit',
-    array(
-        'heading' => CHtml::encode(Yii::app()->name),
-    )
-); ?>
-<?php $this->endWidget(); ?>
+<div id="home-logo"></div>
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
 

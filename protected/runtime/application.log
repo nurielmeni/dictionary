@@ -3926,3 +3926,60 @@ Stack trace:
 REQUEST_URI=/dictionary/index.php/dictionary/admin
 HTTP_REFERER=http://localhost/dictionary/index.php/dictionary
 ---
+2014/04/29 22:22:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\yii-1.1.14\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\xampp\yii-1.1.14\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\yii-1.1.14\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\yii-1.1.14\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\yii-1.1.14\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\yii-1.1.14\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\yii-1.1.14\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\xampp\yii-1.1.14\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\yii-1.1.14\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 D:\xampp\yii-1.1.14\framework\web\CWebApplication.php(141): CWebApplication->runController('user/admin')
+#9 D:\xampp\yii-1.1.14\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\dictionary\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dictionary/index.php/user/admin
+HTTP_REFERER=http://localhost/dictionary/index.php/user
+---
+2014/04/29 23:00:05 [error] [php] Missing argument 2 for CClientScript::registerScript(), called in D:\xampp\htdocs\dictionary\protected\views\site\index.php on line 3 and defined (D:\xampp\yii-1.1.14\framework\web\CClientScript.php:676)
+Stack trace:
+#0 D:\xampp\yii-1.1.14\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 D:\xampp\yii-1.1.14\framework\web\CController.php(869): SiteController->renderFile()
+#2 D:\xampp\yii-1.1.14\framework\web\CController.php(782): SiteController->renderPartial()
+#3 D:\xampp\htdocs\dictionary\protected\controllers\SiteController.php(33): SiteController->render()
+#4 D:\xampp\yii-1.1.14\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#5 D:\xampp\yii-1.1.14\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\xampp\yii-1.1.14\framework\web\CController.php(286): SiteController->runAction()
+#7 D:\xampp\yii-1.1.14\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#8 D:\xampp\yii-1.1.14\framework\web\CWebApplication.php(282): SiteController->run()
+#9 D:\xampp\yii-1.1.14\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\xampp\yii-1.1.14\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\dictionary\index.php(13): CWebApplication->run()
+REQUEST_URI=/dictionary/index.php
+in D:\xampp\htdocs\dictionary\protected\views\site\index.php (3)
+in D:\xampp\htdocs\dictionary\protected\controllers\SiteController.php (33)
+in D:\xampp\htdocs\dictionary\index.php (13)
+2014/04/29 23:26:05 [error] [php] Undefined variable: returnVal (D:\xampp\htdocs\dictionary\protected\controllers\AjaxController.php:21)
+Stack trace:
+#0 D:\xampp\yii-1.1.14\framework\web\CController.php(286): AjaxController->runAction()
+#1 D:\xampp\yii-1.1.14\framework\web\CController.php(265): AjaxController->runActionWithFilters()
+#2 D:\xampp\yii-1.1.14\framework\web\CWebApplication.php(282): AjaxController->run()
+#3 D:\xampp\yii-1.1.14\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\yii-1.1.14\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\dictionary\index.php(13): CWebApplication->run()
+REQUEST_URI=/dictionary/index.php/ajax/listEntries?term=minf
+in D:\xampp\htdocs\dictionary\protected\controllers\AjaxController.php (21)
+in D:\xampp\htdocs\dictionary\index.php (13)
+2014/04/29 23:26:13 [error] [php] Undefined variable: returnVal (D:\xampp\htdocs\dictionary\protected\controllers\AjaxController.php:21)
+Stack trace:
+#0 D:\xampp\yii-1.1.14\framework\web\CController.php(286): AjaxController->runAction()
+#1 D:\xampp\yii-1.1.14\framework\web\CController.php(265): AjaxController->runActionWithFilters()
+#2 D:\xampp\yii-1.1.14\framework\web\CWebApplication.php(282): AjaxController->run()
+#3 D:\xampp\yii-1.1.14\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\yii-1.1.14\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\dictionary\index.php(13): CWebApplication->run()
+REQUEST_URI=/dictionary/index.php/ajax/listEntries?term=minf
+in D:\xampp\htdocs\dictionary\protected\controllers\AjaxController.php (21)
+in D:\xampp\htdocs\dictionary\index.php (13)
