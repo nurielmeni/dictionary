@@ -44,13 +44,17 @@ class AjaxController extends Controller
 	
     public function actionGetDefinitions()
     {
+        if (isset($_GET['id']))
+        {
+            $model = Entry::model()->findByPk($_GET['id']); 
+            
             $criteria = new CDbCriteria();
             $criteria->select = 'type_id, definition, position, source';
-            $criteria->condition = 'entry_id = :entry_id';
+            $criteria->condition = 'entry.name = :entry_name';
             $criteria->order = 'position ASC';
-            $criteria->params = array(':entry_id'=>$_GET['id']);
-            $res = Definition::model()->with('type')->with('dictionary')->findAll($criteria);
-            
+            $criteria->params = array(':entry_name'=>$model->name);
+            $res = Definition::model()->with('entry')->with('type')->with('dictionary')->findAll($criteria);
+
             foreach ($res as $item){
                 $returnVal[] = array(    
                     'type'=>$item->type->symbol,
@@ -60,13 +64,15 @@ class AjaxController extends Controller
                     'dictionary'=>$item->dictionary->name,
                 );
             }
-            
+
             if (isset($returnVal))
                 echo CJSON::encode($returnVal);
             else 
                 echo CJSON::encode('');
-            
-            Yii::app()->end();
+        }
+        else
+            echo CJSON::encode('');
+        Yii::app()->end();
     }
         
     public function actionGetEntry()

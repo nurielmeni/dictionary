@@ -4207,3 +4207,147 @@ Stack trace:
 REQUEST_URI=/~meni/dictionary/index.php/ajax/listEntries?term=gt&option=0
 in /home/meni/public_html/dictionary/protected/controllers/AjaxController.php (40)
 in /home/meni/public_html/dictionary/index.php (13)
+2014/05/18 15:36:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'MIND') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='MIND'.
+in /home/meni/public_html/dictionary/protected/controllers/AjaxController.php (56)
+in /home/meni/public_html/dictionary/index.php (13)
+2014/05/18 15:36:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'MIND') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='MIND'' in /home/meni/yii-1.1.14/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /home/meni/yii-1.1.14/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /home/meni/public_html/dictionary/protected/controllers/AjaxController.php(56): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /home/meni/yii-1.1.14/framework/web/actions/CInlineAction.php(49): AjaxController->actionGetDefinitions()
+#8 /home/meni/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/meni/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /home/meni/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('getDefinitions')
+#12 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('ajax/getDefinit...')
+#13 /home/meni/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /home/meni/public_html/dictionary/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/~meni/dictionary/index.php/ajax/getDefinitions/87916?_=1400416554505
+HTTP_REFERER=http://localhost/~meni/dictionary/index.php?XDEBUG_SESSION_START=netbeans-xdebug
+---
+2014/05/18 15:36:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'TERM') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='TERM'.
+in /home/meni/public_html/dictionary/protected/controllers/AjaxController.php (56)
+in /home/meni/public_html/dictionary/index.php (13)
+2014/05/18 15:36:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'TERM') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='TERM'' in /home/meni/yii-1.1.14/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /home/meni/yii-1.1.14/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /home/meni/public_html/dictionary/protected/controllers/AjaxController.php(56): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /home/meni/yii-1.1.14/framework/web/actions/CInlineAction.php(49): AjaxController->actionGetDefinitions()
+#8 /home/meni/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/meni/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /home/meni/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('getDefinitions')
+#12 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('ajax/getDefinit...')
+#13 /home/meni/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /home/meni/public_html/dictionary/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/~meni/dictionary/index.php/ajax/getDefinitions/93296?_=1400416583380
+HTTP_REFERER=http://localhost/~meni/dictionary/index.php?XDEBUG_SESSION_START=netbeans-xdebug
+---
+2014/05/18 15:36:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'TERM') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='TERM'.
+in /home/meni/public_html/dictionary/protected/controllers/AjaxController.php (56)
+in /home/meni/public_html/dictionary/index.php (13)
+2014/05/18 15:36:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'TERM') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='TERM'' in /home/meni/yii-1.1.14/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /home/meni/yii-1.1.14/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /home/meni/public_html/dictionary/protected/controllers/AjaxController.php(56): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /home/meni/yii-1.1.14/framework/web/actions/CInlineAction.php(49): AjaxController->actionGetDefinitions()
+#8 /home/meni/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/meni/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /home/meni/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('getDefinitions')
+#12 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('ajax/getDefinit...')
+#13 /home/meni/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /home/meni/public_html/dictionary/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/~meni/dictionary/index.php/ajax/getDefinitions/93296?_=1400416585068
+HTTP_REFERER=http://localhost/~meni/dictionary/index.php?XDEBUG_SESSION_START=netbeans-xdebug
+---
+2014/05/18 15:37:42 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'MIND') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='MIND'.
+in /home/meni/public_html/dictionary/protected/controllers/AjaxController.php (56)
+in /home/meni/public_html/dictionary/index.php (13)
+2014/05/18 15:37:42 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'MIND') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='MIND'' in /home/meni/yii-1.1.14/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /home/meni/yii-1.1.14/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /home/meni/public_html/dictionary/protected/controllers/AjaxController.php(56): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /home/meni/yii-1.1.14/framework/web/actions/CInlineAction.php(49): AjaxController->actionGetDefinitions()
+#8 /home/meni/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/meni/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /home/meni/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('getDefinitions')
+#12 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('ajax/getDefinit...')
+#13 /home/meni/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /home/meni/public_html/dictionary/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/~meni/dictionary/index.php/ajax/getDefinitions/87916?_=1400416638311
+HTTP_REFERER=http://localhost/~meni/dictionary/index.php?XDEBUG_SESSION_START=netbeans-xdebug
+---
+2014/05/18 15:37:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'MIND') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='MIND'.
+in /home/meni/public_html/dictionary/protected/controllers/AjaxController.php (56)
+in /home/meni/public_html/dictionary/index.php (13)
+2014/05/18 15:37:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'MIND') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='MIND'' in /home/meni/yii-1.1.14/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /home/meni/yii-1.1.14/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /home/meni/public_html/dictionary/protected/controllers/AjaxController.php(56): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /home/meni/yii-1.1.14/framework/web/actions/CInlineAction.php(49): AjaxController->actionGetDefinitions()
+#8 /home/meni/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/meni/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /home/meni/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('getDefinitions')
+#12 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('ajax/getDefinit...')
+#13 /home/meni/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /home/meni/public_html/dictionary/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/~meni/dictionary/index.php/ajax/getDefinitions/87916?_=1400416660900
+HTTP_REFERER=http://localhost/~meni/dictionary/index.php?XDEBUG_SESSION_START=netbeans-xdebug
+---
+2014/05/18 15:39:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'TERMAN') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='TERMAN'.
+in /home/meni/public_html/dictionary/protected/controllers/AjaxController.php (56)
+in /home/meni/public_html/dictionary/index.php (13)
+2014/05/18 15:41:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>name = 'TERMAN') ORDER BY position ASC' at line 1. The SQL statement executed was: SELECT `t`.`type_id` AS `t0_c4`, `t`.`definition` AS `t0_c5`, `t`.`position` AS `t0_c6`, `t`.`source` AS `t0_c3`, `t`.`id` AS `t0_c0`, `entry`.`id` AS `t1_c0`, `entry`.`name` AS `t1_c1`, `entry`.`date_entered` AS `t1_c2`, `entry`.`date_updated` AS `t1_c3`, `entry`.`by_user_id` AS `t1_c4`, `type`.`id` AS `t2_c0`, `type`.`name` AS `t2_c1`, `type`.`symbol` AS `t2_c2`, `type`.`date_entered` AS `t2_c3`, `type`.`date_updated` AS `t2_c4`, `type`.`by_user_id` AS `t2_c5`, `dictionary`.`id` AS `t3_c0`, `dictionary`.`name` AS `t3_c1`, `dictionary`.`sort_order` AS `t3_c2`, `dictionary`.`date_entered` AS `t3_c3`, `dictionary`.`date_updated` AS `t3_c4`, `dictionary`.`by_user_id` AS `t3_c5` FROM `definition` `t`  LEFT OUTER JOIN `entry` `entry` ON (`t`.`entry_id`=`entry`.`id`)  LEFT OUTER JOIN `type` `type` ON (`t`.`type_id`=`type`.`id`)  LEFT OUTER JOIN `dictionary` `dictionary` ON (`t`.`dictionary_id`=`dictionary`.`id`)  WHERE (entry->name = :entry_name) ORDER BY position ASC. Bound with :entry_name='TERMAN'' in /home/meni/yii-1.1.14/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /home/meni/yii-1.1.14/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /home/meni/yii-1.1.14/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /home/meni/yii-1.1.14/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /home/meni/public_html/dictionary/protected/controllers/AjaxController.php(56): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /home/meni/yii-1.1.14/framework/web/actions/CInlineAction.php(49): AjaxController->actionGetDefinitions()
+#8 /home/meni/yii-1.1.14/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/meni/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /home/meni/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('getDefinitions')
+#12 /home/meni/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('ajax/getDefinit...')
+#13 /home/meni/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /home/meni/public_html/dictionary/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/~meni/dictionary/index.php/ajax/getDefinitions/93297?_=1400416731571
+HTTP_REFERER=http://localhost/~meni/dictionary/index.php?XDEBUG_SESSION_START=netbeans-xdebug
+---
