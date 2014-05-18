@@ -8,8 +8,27 @@ class AjaxController extends Controller
         if (isset($_GET['term'])) {
             $criteria = new CDbCriteria();
             $criteria->select = 'id, name';
-            $criteria->condition = 'name LIKE :term';
-            $criteria->params = array(':term'=>'%'.$_GET['term'].'%');
+            if (isset($_GET['option'])){
+                switch ($_GET['option']){
+                    case 0:
+                        $criteria->condition = 'name LIKE :term';
+                        $criteria->params = array(':term'=>$_GET['term'].'%');
+                        break;
+                    case 1:
+                        $criteria->condition = 'name LIKE :term';
+                        $criteria->params = array(':term'=>'%'.$_GET['term'].'%');
+                        break;
+                    case 2:
+                        $criteria->condition = 'name = :term';
+                        $criteria->params = array(':term'=>$_GET['term']);
+                        break;
+                }
+            }
+            else
+            {
+                $criteria->condition = 'name LIKE :term';
+                $criteria->params = array(':term'=>'%'.$_GET['term'].'%');               
+            }
             $res = Entry::model()->findAll($criteria);
             
             foreach ($res as $item){

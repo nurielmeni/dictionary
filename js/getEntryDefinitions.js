@@ -23,3 +23,12 @@ function printDfinition(result)
     });
     $('#wordEntry').html(htmlData);                        
 }
+
+$(function(){
+    $("#searchOption").change(function(){
+        $("#entry").val("");
+        $("#entry").focus();
+    });    
+});
+
+

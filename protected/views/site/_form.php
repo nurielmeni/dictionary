@@ -1,7 +1,8 @@
 <?php
     Yii::app()->clientScript->registerScript('helpers', '                                                           
               yii = {                                                                                                     
-                  urls: {                                                                                                 
+                  urls: {   
+                      params: '.CJSON::encode(Yii::app()->createUrl('ajax/listEntries')).', 
                       getDefinitions: '.CJSON::encode(Yii::app()->createUrl('ajax/getDefinitions')).',                                   
                       base: '.CJSON::encode(Yii::app()->baseUrl).'                                                        
                   }                                                                                                       
@@ -9,6 +10,15 @@
     '); 
 ?>
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/getEntryDefinitions.js', CClientScript::POS_END); ?>
+
+<?php 
+        $select = '0';
+        echo CHtml::dropDownList('searchOption', $select, 
+                    array('Start With', 
+                          'Include', 
+                          'Equal'));        
+?>
+
 
 
 <div class="form">
@@ -20,7 +30,10 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	//'enableAjaxValidation'=>false,
+        // Yii::app()->createUrl('ajax/listEntries'),
 )); ?>
+    
+
 <?php echo $form->hiddenField($model,'id',array()); ?>
 
 <?php
@@ -29,15 +42,22 @@
         'attribute' => 'id',
         'name' => 'entry',
         'value' => 'Enter the term to search...',
-        'source' => Yii::app()->createUrl('ajax/listEntries'),
+        'source' => 'js:function(request, response){
+            $.get("/~meni/dictionary/index.php/ajax/listEntries", {
+                term: request.term,
+                option: $("#searchOption").val()
+            }, function(data){response(data)}, "json");}',
         'options' => array(            
             'minLength' => 2,
-            'select' => "js:function(event, ui) {                
-                $('#Entry_id').val(ui.item.id);
-                getDefinitions(yii.urls.getDefinitions+'/'+ui.item.id);
+            'delay' => 500,
+            'select' => "js:function(event, ui) {  
+                if (typeof(ui.item.id) != 'undefined' && ui.item.id !== null) {
+                    $('#Entry_id').val(ui.item.id);
+                    getDefinitions(yii.urls.getDefinitions+'/'+ui.item.id);
+                }
             }",
             'change' => "js:function(event, ui) {
-                if (!ui.item) {
+                if (typeof(ui.item.id) != 'undefined' && ui.item.id !== null) {
                     $('#Entry_id').val('');
                     getDefinitions(yii.urls.getDefinitions+'/'+ui.item.id);
                 }

@@ -10,5 +10,10 @@ $this->breadcrumbs=array(
 
 <p>This is a Dictionary System for Tel Aviv Org.</p>
 <p>It contains definitions from several dictionaries.</p>
-
+<p>You can search term in several ways:</p>
+<ul>
+    <li>Start With: Will search terms that start with what you type in the search box.</li>
+    <li>Include: Will search terms that includes what you type in the search box.</li>
+    <li>Equal: Will search terms that equal what you type in the search box.</li>
+</ul>
 <p>Create By: Meni Nuriel.</p>
