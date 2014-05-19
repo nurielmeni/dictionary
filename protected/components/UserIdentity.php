@@ -8,7 +8,7 @@
 class UserIdentity extends CUserIdentity
 {
     private $_id;
-    
+       
     
 	/**
 	 * Authenticates a user.
@@ -34,7 +34,7 @@ class UserIdentity extends CUserIdentity
                 $this->errorCode=self::ERROR_NONE;
                 $this->setState('type', $user->type);
                 $this->_id = $user->id;
-
+                
             }
             return !$this->errorCode;
 	}
@@ -42,5 +42,5 @@ class UserIdentity extends CUserIdentity
     // Overides the default Yii::user->id to return the id and not name.
     public function getId(){
         return $this->_id;
-    }    
+    }  
 }

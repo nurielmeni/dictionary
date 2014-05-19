@@ -51,7 +51,7 @@ class AjaxController extends Controller
             $criteria = new CDbCriteria();
             $criteria->select = 'type_id, definition, position, source';
             $criteria->condition = 'entry.name = :entry_name';
-            $criteria->order = 'position ASC';
+            $criteria->order = 'dictionary.sort_order ASC, position ASC';
             $criteria->params = array(':entry_name'=>$model->name);
             $res = Definition::model()->with('entry')->with('type')->with('dictionary')->findAll($criteria);
 
@@ -62,6 +62,8 @@ class AjaxController extends Controller
                     'position'=>$item->position,
                     'source'=>$item->source,
                     'dictionary'=>$item->dictionary->name,
+                    'dictionary_id'=>$item->dictionary->id,
+                    'definition_id'=>$item->id,
                 );
             }
 

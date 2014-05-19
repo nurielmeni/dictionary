@@ -29,8 +29,9 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
+            
         $model = new Entry;
-		$this->render('index', array('model' => $model));
+        $this->render('index', array('model' => $model));
 	}
 
 	/**

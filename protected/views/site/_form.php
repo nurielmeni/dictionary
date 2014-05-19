@@ -1,14 +1,3 @@
-<?php
-    Yii::app()->clientScript->registerScript('helpers', '                                                           
-              yii = {                                                                                                     
-                  urls: {   
-                      params: '.CJSON::encode(Yii::app()->createUrl('ajax/listEntries')).', 
-                      getDefinitions: '.CJSON::encode(Yii::app()->createUrl('ajax/getDefinitions')).',                                   
-                      base: '.CJSON::encode(Yii::app()->baseUrl).'                                                        
-                  }                                                                                                       
-              };                                                                                                          
-    '); 
-?>
 <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/getEntryDefinitions.js', CClientScript::POS_END); ?>
 
 <?php 
