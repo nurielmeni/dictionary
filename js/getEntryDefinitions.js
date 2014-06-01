@@ -18,10 +18,10 @@ function printDfinition(result)
     var entryNoAndType = '';
     $.each(data, function(index, value){
         entryNoAndType = value['dictionary_id'] > 13 ? '<p style="margin: 0 0 7px 7px; color: #636CD6; font-weight: bold;">'+value['position']+'. '+value['type']+'</p>' : "";
-        htmlData += entryNoAndType+
-                    '<p style="margin: 0 0 7px 22px; color: #616161;">'+value['definition']+'</p>'+
-                    '<p style="margin: 0 0 10px 22px; color: #ACADB0; font-size: small;">(Source: '+value['source']+')</p>'+
-                    '<p style="margin: 0 0 10px 22px; color: #ACADB0; font-size: small;">(Dictionary: '+value['dictionary']+')</p>';
+        htmlData += entryNoAndType;
+        htmlData += '<p style="margin: 0 0 7px 22px; color: #616161;">'+value['definition']+'</p>';
+        htmlData += value['source'] === null ? "" : '<p style="margin: 0 0 10px 22px; color: #ACADB0; font-size: small;">(Source: '+value['source']+')</p>';
+        htmlData += '<p style="margin: 0 0 10px 22px; color: #ACADB0; font-size: small;">(Dictionary: '+value['dictionary']+')</p>';
         if ($("#adminuser").length > 0){
             htmlData += '<p style="margin: 0 0 10px 22px; color: #ACADB0; font-size: small;">' + 
             '<a href="' + yii.urls.updateDefinitions + '/' + value['definition_id'] + 

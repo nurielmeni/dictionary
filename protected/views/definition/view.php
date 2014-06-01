@@ -41,12 +41,13 @@ $this->menu=array(
                             Yii::app()->createUrl('type/'.$model->getAttribute('type_id'))),
                 ),
                 'definition',
-                'position',		
+                'position',                
                 array(
                     'name'=>'user.username',
                     'type'=>'raw',
-                    'value'=>CHtml::link(($model->user->username), 
-                            Yii::app()->createUrl('user/'.$model->getAttribute('user_id'))),
+                    'value'=>$model->by_user_id === NULL ? "No User" :
+                            CHtml::link(($model->user->username), 
+                                Yii::app()->createUrl('user/'.$model->getAttribute('user_id'))),
                 ),
 		
 	),

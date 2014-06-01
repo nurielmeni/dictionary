@@ -32,7 +32,7 @@
         'name' => 'entry',
         'value' => 'Enter the term to search...',
         'source' => 'js:function(request, response){
-            $.get("/~meni/dictionary/index.php/ajax/listEntries", {
+            $.get(yii.urls.params, {
                 term: request.term,
                 option: $("#searchOption").val()
             }, function(data){response(data)}, "json");}',
