@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `yii_dictionary` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `yii_dictionary`;
+CREATE DATABASE  IF NOT EXISTS `a2583155_dic` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `a2583155_dic`;
 -- MySQL dump 10.13  Distrib 5.5.37, for debian-linux-gnu (i686)
 --
--- Host: localhost    Database: yii_dictionary
+-- Host: localhost    Database: a2583155_dic
 -- ------------------------------------------------------
 -- Server version	5.5.37-0ubuntu0.14.04.1
 
