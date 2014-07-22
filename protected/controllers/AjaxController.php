@@ -31,13 +31,17 @@ class AjaxController extends Controller
             }
             $res = Entry::model()->findAll($criteria);
             
-            foreach ($res as $item){
-                $returnVal[] = array(    
-                    'value'=>$item->name,
-                    'id'=>$item->id,
-                );
+            if (count($res) > 0){
+                foreach ($res as $item){
+                    $returnVal[] = array(    
+                        'value'=>$item->name,
+                        'id'=>$item->id,
+                    );
+                }
+                echo CJSON::encode($returnVal);
             }
-            echo CJSON::encode($returnVal);
+            else
+                echo CJSON::encode("");
             Yii::app()->end();
         }   
     }
